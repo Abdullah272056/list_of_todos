@@ -24,75 +24,107 @@ class TodoDetailsPage extends StatelessWidget {
         ),
         body: Center(
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+          child: Container(
+            color: Colors.black.withOpacity(.2),
+            padding: EdgeInsets.only(left: 20,right: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
 
-                  Text("User Id: "),
-                  Obx(() =>
-                      Text(" ${todoDetailsController.userId}"),
-                  )
-
-
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-
-                  Text("Id: "),
-                  Obx(() =>
-                      Text(" ${todoDetailsController.id1}"),
-                  )
-                  ,
-
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-
-                  Text("Title: "),
-                  Expanded(child: Obx(() =>
-                      Text(" ${todoDetailsController.title}"),
-                  ))
+                    Text("User Id: ",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500
+                    ),
+                    ),
+                    Obx(() =>
+                        Text(" ${todoDetailsController.userId}"),
+                    )
 
 
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Id: ",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500
+                      ),
+                    ),
 
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Completed:"),
-                  SizedBox(
-                      height: 30,
-                      width: 30,
-                      child:  Obx(() =>
-                          Checkbox(
-                            value:todoDetailsController.completed.value,
-                            onChanged: ( value) {
+                    Obx(() =>
+                        Text(" ${todoDetailsController.id1}"),
+                    )
+                    ,
 
-                            },
-                          ),
-                      )
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Title: ",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500
+                      ),
+                    ),
 
-
-
-
-
-                  )
-
-
-                ],
-              ),
+                    Flexible(
+                        child: Obx(() =>
+                            Text(" ${todoDetailsController.title}"),
+                        ))
 
 
-            ],
+
+
+
+
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Completed: ",
+                      style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500
+                      ),
+                    ),
+
+                    SizedBox(
+                        height: 30,
+                        width: 30,
+                        child:  Obx(() =>
+                            Checkbox(
+                              value:todoDetailsController.completed.value,
+                              onChanged: ( value) {
+
+                              },
+                            ),
+                        )
+
+
+
+
+
+                    )
+
+
+                  ],
+                ),
+
+
+              ],
+            ),
           ),
         )
 
